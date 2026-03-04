@@ -115,9 +115,9 @@ User → Frontend (React) → Backend API (Express) → MongoDB
 
 ## 👩‍💻 Team
 
-Team Name: Innovatrix
-Team Members: Khushi Gupta, Arushi Patra, Kalpana Pal
-Hackathon: KOKOTHON  
+- Team Name: Innovatrix
+- Team Members: Khushi Gupta, Arushi Patra, Kalpana Pal
+- Hackathon: KOKOTHON  
 Built with ❤️ for students
 
 ---
