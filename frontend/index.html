@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CampusCart — Student Marketplace</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+
+<body>
+
+  <!-- ===== MODALS ===== -->
+  <div id="modal-overlay" class="modal-overlay hidden"></div>
+
+  <!-- Auth Modal -->
+  <div id="auth-modal" class="modal hidden">
+    <button class="modal-close" onclick="closeModal('auth-modal')">✕</button>
+    <div class="auth-tabs">
+      <button class="auth-tab active" onclick="switchAuthTab('login')">Sign In</button>
+      <button class="auth-tab" onclick="switchAuthTab('signup')">Sign Up</button>
+    </div>
+    <div id="login-form">
+      <h2>Welcome back</h2>
+      <p class="auth-sub">Sign in with your college email</p>
+      <input type="email" id="login-email" placeholder="you@university.edu" class="input-field" />
+      <input type="password" id="login-password" placeholder="Password" class="input-field" />
+      <button class="btn-primary full-width" onclick="handleLogin()">Sign In</button>
+      <p class="auth-note">Only verified .edu emails are accepted</p>
+    </div>
+    <div id="signup-form" class="hidden">
+      <h2>Join CampusSwap</h2>
+      <p class="auth-sub">Create your student account</p>
+      <input type="text" id="signup-name" placeholder="Full Name" class="input-field" />
+      <input type="email" id="signup-email" placeholder="you@university.edu" class="input-field" />
+      <input type="text" id="signup-college" placeholder="College / University" class="input-field" />
+      <input type="password" id="signup-password" placeholder="Create Password" class="input-field" />
+      <button class="btn-primary full-width" onclick="handleSignup()">Create Account</button>
+      <p class="auth-note">Only verified .edu emails are accepted</p>
+    </div>
+  </div>
+
+  <!-- Post Item Modal -->
+  <div id="post-modal" class="modal hidden">
+    <button class="modal-close" onclick="closeModal('post-modal')">✕</button>
+    <h2>List an Item</h2>
+    <p class="auth-sub">What are you selling or donating?</p>
+    <input type="text" id="post-title" placeholder="Item title (e.g. Calculus Textbook)" class="input-field" />
+    <textarea id="post-desc" placeholder="Describe your item..." class="input-field textarea"></textarea>
+    <div class="form-row">
+      <select id="post-category" class="input-field">
+        <option value="">Category</option>
+        <option>📚 Textbooks</option>
+        <option>🔬 Lab Equipment</option>
+        <option>💻 Electronics</option>
+        <option>🛋️ Furniture</option>
+        <option>👕 Clothing</option>
+        <option>🎒 Supplies</option>
+        <option>🎮 Entertainment</option>
+        <option>🔧 Tools</option>
+      </select>
+      <select id="post-condition" class="input-field">
+        <option value="">Condition</option>
+        <option>Like New</option>
+        <option>Good</option>
+        <option>Fair</option>
+        <option>For Parts</option>
+      </select>
+    </div>
+    <div class="form-row">
+      <input type="number" id="post-price" placeholder="Price (₹)" class="input-field" />
+      <label class="donate-label">
+        <input type="checkbox" id="post-donate" onchange="toggleDonate()" /> Free / Donate
+      </label>
+    </div>
+    <div class="image-upload-area" onclick="triggerImageUpload()">
+      <span class="upload-icon">📷</span>
+      <p>Click to add photos</p>
+      <input type="file" id="post-images" multiple accept="image/*" style="display:none"
+        onchange="previewImages(event)" />
+    </div>
+    <div id="image-previews" class="image-previews"></div>
+    <button class="btn-primary full-width" onclick="handlePostItem()">Post Item</button>
+  </div>
+
+  <!-- Item Detail Modal -->
+  <div id="detail-modal" class="modal modal-wide hidden">
+    <button class="modal-close" onclick="closeModal('detail-modal')">✕</button>
+    <div id="detail-content"></div>
+  </div>
+
+  <!-- Chat Modal -->
+  <div id="chat-modal" class="modal hidden">
+    <button class="modal-close" onclick="closeModal('chat-modal')">✕</button>
+    <div id="chat-header" class="chat-header"></div>
+    <div id="chat-messages" class="chat-messages"></div>
+    <div class="chat-input-row">
+      <input type="text" id="chat-input" placeholder="Type a message..." class="input-field chat-input"
+        onkeydown="if(event.key==='Enter') sendMessage()" />
+      <button class="btn-primary" onclick="sendMessage()">Send</button>
+    </div>
+  </div>
+
+  <!-- Toast Notification -->
+  <div id="toast" class="toast hidden"></div>
+
+  <!-- ===== MAIN APP ===== -->
+  <header class="header">
+    <div class="header-inner">
+      <a href="#" class="logo" onclick="showPage('home')">Campus<span>Cart</span></a>
+      <nav class="nav-links" id="main-nav">
+        <a href="#" onclick="showPage('home')" class="nav-link active">Browse</a>
+        <a href="#" onclick="requireAuth(() => showPage('watchlist'))" class="nav-link">Watchlist <span
+            id="watchlist-count" class="badge hidden">0</span></a>
+        <a href="#" onclick="requireAuth(() => showPage('my-listings'))" class="nav-link">My Listings</a>
+        <a href="#" onclick="requireAuth(() => showPage('chats'))" class="nav-link">Chats</a>
+      </nav>
+      <div class="header-actions">
+        <button class="btn-secondary" id="auth-btn" onclick="openModal('auth-modal')">Sign In</button>
+        <button class="btn-primary" id="post-btn" onclick="requireAuth(()=>openModal('post-modal'))"
+          style="display:none">+ List Item</button>
+        <div class="user-avatar hidden" id="user-avatar" onclick="showPage('profile')"></div>
+      </div>
+    </div>
+  </header>
+
+  <main id="app">
+
+    <!-- ===== HOME PAGE ===== -->
+    <section id="page-home" class="page active">
+      <div class="hero">
+        <div class="hero-text">
+          <div class="hero-tag">🎓 For Students, By Students</div>
+          <h1>Buy, Sell & Donate<br />on Campus</h1>
+          <p>A trusted marketplace exclusively for verified college students. Find textbooks, electronics, furniture and
+            more at student prices.</p>
+          <div class="hero-actions">
+            <button class="btn-primary large"
+              onclick="document.getElementById('browse-section').scrollIntoView({behavior:'smooth'})">Browse
+              Items</button>
+            <button class="btn-outline large" onclick="requireAuth(()=>openModal('post-modal'))">Sell Something</button>
+          </div>
+        </div>
+        <div class="hero-stats">
+          <div class="stat-card"><span class="stat-num" id="stat-items">0</span><span>Items Listed</span></div>
+          <div class="stat-card"><span class="stat-num" id="stat-users">0</span><span>Students</span></div>
+          <div class="stat-card"><span class="stat-num" id="stat-colleges">0</span><span>Colleges</span></div>
+        </div>
+      </div>
+
+      <div id="browse-section" class="browse-section">
+        <!-- Category Filter -->
+        <div class="categories-row">
+          <button class="cat-btn active" onclick="filterCategory('all', this)">All</button>
+          <button class="cat-btn" onclick="filterCategory('📚 Textbooks', this)">📚 Textbooks</button>
+          <button class="cat-btn" onclick="filterCategory('🔬 Lab Equipment', this)">🔬 Lab</button>
+          <button class="cat-btn" onclick="filterCategory('💻 Electronics', this)">💻 Electronics</button>
+          <button class="cat-btn" onclick="filterCategory('🛋️ Furniture', this)">🛋️ Furniture</button>
+          <button class="cat-btn" onclick="filterCategory('👕 Clothing', this)">👕 Clothing</button>
+          <button class="cat-btn" onclick="filterCategory('🎮 Entertainment', this)">🎮 Entertainment</button>
+        </div>
+
+        <!-- Filters Bar -->
+        <div class="filters-bar">
+          <input type="text" id="search-input" placeholder="🔍 Search items..." class="search-input"
+            oninput="applyFilters()" />
+          <select id="filter-condition" class="filter-select" onchange="applyFilters()">
+            <option value="">All Conditions</option>
+            <option>Like New</option>
+            <option>Good</option>
+            <option>Fair</option>
+            <option>For Parts</option>
+          </select>
+          <select id="filter-price" class="filter-select" onchange="applyFilters()">
+            <option value="">Any Price</option>
+            <option value="free">Free/Donate</option>
+            <option value="0-500">Under ₹500</option>
+            <option value="500-2000">₹500–₹2,000</option>
+            <option value="2000-10000">₹2,000–₹10,000</option>
+            <option value="10000+">₹10,000+</option>
+          </select>
+          <select id="filter-sort" class="filter-select" onchange="applyFilters()">
+            <option value="newest">Newest First</option>
+            <option value="price-low">Price: Low to High</option>
+            <option value="price-high">Price: High to Low</option>
+          </select>
+        </div>
+
+        <!-- Items Grid -->
+        <div id="items-grid" class="items-grid"></div>
+        <div id="no-results" class="no-results hidden">
+          <span>🔍</span>
+          <p>No items found. Try different filters!</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== WATCHLIST PAGE ===== -->
+    <section id="page-watchlist" class="page hidden">
+      <div class="page-header">
+        <h2>Your Watchlist</h2>
+        <p>Items you're keeping an eye on</p>
+      </div>
+      <div id="watchlist-grid" class="items-grid"></div>
+      <div id="watchlist-empty" class="no-results hidden">
+        <span>🔖</span>
+        <p>No items in watchlist yet. Browse and save items you like!</p>
+      </div>
+    </section>
+
+    <!-- ===== MY LISTINGS PAGE ===== -->
+    <section id="page-my-listings" class="page hidden">
+      <div class="page-header">
+        <h2>My Listings</h2>
+        <button class="btn-primary" onclick="requireAuth(()=>openModal('post-modal'))">+ List New Item</button>
+      </div>
+      <div id="my-listings-grid" class="items-grid"></div>
+      <div id="my-listings-empty" class="no-results hidden">
+        <span>📦</span>
+        <p>You haven't listed anything yet!</p>
+      </div>
+    </section>
+
+    <!-- ===== CHATS PAGE ===== -->
+    <section id="page-chats" class="page hidden">
+      <div class="page-header">
+        <h2>Messages</h2>
+      </div>
+      <div id="chats-list" class="chats-list"></div>
+      <div id="chats-empty" class="no-results hidden">
+        <span>💬</span>
+        <p>No conversations yet. Find an item you like and start chatting!</p>
+      </div>
+    </section>
+
+    <!-- ===== PROFILE PAGE ===== -->
+    <section id="page-profile" class="page hidden">
+      <div id="profile-content"></div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <p>CampusSwap © 2025 — Exclusively for verified students &nbsp;·&nbsp; <a href="#">Terms</a> &nbsp;·&nbsp; <a
+        href="#">Safety Tips</a></p>
+  </footer>
+
+  <script src="js/data.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/chat.js"></script>
+</body>
+
+</html>
