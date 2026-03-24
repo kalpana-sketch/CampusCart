@@ -1,8 +1,13 @@
 import { motion } from 'motion/react';
 import { ArrowRight, ShieldCheck, Leaf, Users, TrendingUp } from 'lucide-react';
 import { Link } from 'react-router';
+<<<<<<< HEAD
 import { ItemCard } from '../components/ItemCard.js';
 import { mockItems } from '../data/mockData.js';
+=======
+import { ItemCard } from '../components/ItemCard';
+import { mockItems } from '../data/mockData';
+>>>>>>> 3bb46ca4d2d31115eb02cb98dad088dcab647242
 
 export function Home() {
   const featuredItems = mockItems.slice(0, 6);

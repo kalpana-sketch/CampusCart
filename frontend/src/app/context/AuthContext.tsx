@@ -13,7 +13,11 @@ interface User {
 interface AuthContextType {
   user: User | null;
   login: (email: string, password: string) => Promise<void>;
+<<<<<<< HEAD
   signup: (name: string, email: string, password: string, year?: string, major?: string, profileImage?: string) => Promise<void>;
+=======
+  signup: (name: string, email: string, password: string, profileImage?: string) => Promise<void>;
+>>>>>>> 3bb46ca4d2d31115eb02cb98dad088dcab647242
   updateProfile: (data: Partial<User>) => Promise<void>;
   logout: () => void;
   isAuthenticated: boolean;
@@ -47,9 +51,15 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     }
   };
 
+<<<<<<< HEAD
   const signup = async (name: string, email: string, password: string, year?: string, major?: string, profileImage?: string) => {
     try {
       await api.post('/auth/signup', { name, email, password, year, major, profileImage });
+=======
+  const signup = async (name: string, email: string, password: string, profileImage?: string) => {
+    try {
+      await api.post('/auth/signup', { name, email, password, profileImage });
+>>>>>>> 3bb46ca4d2d31115eb02cb98dad088dcab647242
       await login(email, password);
     } catch (error: any) {
       throw new Error(error.response?.data?.message || 'Signup failed');

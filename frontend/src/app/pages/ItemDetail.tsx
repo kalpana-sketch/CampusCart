@@ -2,11 +2,19 @@ import { useParams, useNavigate } from 'react-router';
 import { motion } from 'motion/react';
 import { ArrowLeft, MapPin, Calendar, Package, MessageCircle, Heart, Share2, Loader2 } from 'lucide-react';
 import { useState, useEffect } from 'react';
+<<<<<<< HEAD
 import api from '../services/api.js';
 import { useWishlist } from '../context/WishlistContext.js';
 import { useChat } from '../context/ChatContext.js';
 import { useAuth } from '../context/AuthContext.js';
 import { ReviewSection } from '../components/ReviewSection.js';
+=======
+import api from '../services/api';
+import { useWishlist } from '../context/WishlistContext';
+import { useChat } from '../context/ChatContext';
+import { useAuth } from '../context/AuthContext';
+import { ReviewSection } from '../components/ReviewSection';
+>>>>>>> 3bb46ca4d2d31115eb02cb98dad088dcab647242
 
 export function ItemDetail() {
   const { id } = useParams();
@@ -217,7 +225,11 @@ export function ItemDetail() {
             </div>
 
             {/* Action Buttons */}
+<<<<<<< HEAD
             <div className="flex flex-col sm:flex-row gap-3">
+=======
+            <div className="flex gap-3">
+>>>>>>> 3bb46ca4d2d31115eb02cb98dad088dcab647242
               <motion.button
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
@@ -229,6 +241,7 @@ export function ItemDetail() {
                 <MessageCircle className="w-5 h-5 relative z-10" />
                 <span className="relative z-10">Contact Seller</span>
               </motion.button>
+<<<<<<< HEAD
               <div className="flex gap-3 flex-1">
                 <motion.button
                   whileHover={{ scale: 1.05 }}
@@ -256,12 +269,43 @@ export function ItemDetail() {
                   <Share2 className="w-6 h-6 text-neutral-600 dark:text-neutral-400" />
                 </motion.button>
               </div>
+=======
+              <motion.button
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                onClick={handleToggleWishlist}
+                className={`p-4 rounded-xl border-2 transition-all backdrop-blur-md shadow-lg ${
+                  isLiked
+                    ? 'bg-red-50/80 dark:bg-red-950/50 border-red-500'
+                    : 'bg-white/50 dark:bg-white/5 border-white/20 dark:border-white/10'
+                }`}
+              >
+                <Heart
+                  className={`w-6 h-6 ${
+                    isLiked
+                      ? 'fill-red-500 text-red-500'
+                      : 'text-neutral-600 dark:text-neutral-400'
+                  }`}
+                />
+              </motion.button>
+              <motion.button
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className="p-4 bg-white/50 dark:bg-white/5 backdrop-blur-md border-2 border-white/20 dark:border-white/10 rounded-xl shadow-lg"
+              >
+                <Share2 className="w-6 h-6 text-neutral-600 dark:text-neutral-400" />
+              </motion.button>
+>>>>>>> 3bb46ca4d2d31115eb02cb98dad088dcab647242
             </div>
           </motion.div>
         </div>
 
         {/* Reviews Section */}
+<<<<<<< HEAD
         <ReviewSection sellerId={item.sellerId?._id || item.sellerId} />
+=======
+        <ReviewSection itemId={item._id || item.id} />
+>>>>>>> 3bb46ca4d2d31115eb02cb98dad088dcab647242
       </div>
     </div>
   );

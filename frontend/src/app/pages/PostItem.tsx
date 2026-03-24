@@ -2,9 +2,15 @@ import { useState, useEffect } from 'react';
 import { motion } from 'motion/react';
 import { Upload, X, CheckCircle } from 'lucide-react';
 import { useNavigate } from 'react-router';
+<<<<<<< HEAD
 import { useAuth } from '../context/AuthContext.js';
 import { categories } from '../data/mockData.js';
 import api from '../services/api.js';
+=======
+import { useAuth } from '../context/AuthContext';
+import { categories } from '../data/mockData';
+import api from '../services/api';
+>>>>>>> 3bb46ca4d2d31115eb02cb98dad088dcab647242
 
 
 export function PostItem() {
@@ -56,8 +62,11 @@ export function PostItem() {
         price: parseFloat(formData.price || '0'),
         category: formData.category,
         images: imagesToSubmit,
+<<<<<<< HEAD
         condition: formData.condition,
         isDonation: formData.isDonation
+=======
+>>>>>>> 3bb46ca4d2d31115eb02cb98dad088dcab647242
       });
 
       setIsSubmitting(false);
@@ -97,8 +106,12 @@ export function PostItem() {
     setImageFiles(prev => prev.filter((_, i) => i !== index));
     setImagePreviews(prev => {
       // revoke object url to avoid memory leaks
+<<<<<<< HEAD
       const url = prev[index];
       if (url) URL.revokeObjectURL(url);
+=======
+      URL.revokeObjectURL(prev[index]);
+>>>>>>> 3bb46ca4d2d31115eb02cb98dad088dcab647242
       return prev.filter((_, i) => i !== index);
     });
   };
@@ -225,7 +238,11 @@ export function PostItem() {
                 required
                 value={formData.category}
                 onChange={(e) => setFormData({ ...formData, category: e.target.value })}
+<<<<<<< HEAD
                 className="w-full px-4 py-3 bg-white dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-neutral-900 dark:text-white shadow-sm cursor-pointer"
+=======
+                className="w-full px-4 py-3 bg-white/50 dark:bg-neutral-900 backdrop-blur-md border border-neutral-200 dark:border-neutral-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-neutral-900 dark:text-white shadow-sm"
+>>>>>>> 3bb46ca4d2d31115eb02cb98dad088dcab647242
               >
                 {categories.filter((c: string) => c !== 'All').map((cat: string) => (
                   <option key={cat} value={cat} className="bg-white dark:bg-neutral-900 text-neutral-900 dark:text-white">{cat}</option>
@@ -241,7 +258,11 @@ export function PostItem() {
                 required
                 value={formData.condition}
                 onChange={(e) => setFormData({ ...formData, condition: e.target.value })}
+<<<<<<< HEAD
                 className="w-full px-4 py-3 bg-white dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-neutral-900 dark:text-white shadow-sm cursor-pointer"
+=======
+                className="w-full px-4 py-3 bg-white/50 dark:bg-neutral-900 backdrop-blur-md border border-neutral-200 dark:border-neutral-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-neutral-900 dark:text-white shadow-sm"
+>>>>>>> 3bb46ca4d2d31115eb02cb98dad088dcab647242
               >
                 <option value="New" className="bg-white dark:bg-neutral-900 text-neutral-900 dark:text-white">New</option>
                 <option value="Like New" className="bg-white dark:bg-neutral-900 text-neutral-900 dark:text-white">Like New</option>

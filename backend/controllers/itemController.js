@@ -24,6 +24,7 @@ exports.getItemById = async (req, res) => {
 // CREATE ITEM
 exports.createItem = async (req, res) => {
   try {
+<<<<<<< HEAD
     const { title, description, price, category, images, condition, isDonation } = req.body;
     const newItem = new Item({
       title,
@@ -33,6 +34,15 @@ exports.createItem = async (req, res) => {
       images,
       condition,
       isDonation,
+=======
+    const { title, description, price, category, images } = req.body;
+    const newItem = new Item({
+      title,
+      description,
+      price,
+      category,
+      images,
+>>>>>>> 3bb46ca4d2d31115eb02cb98dad088dcab647242
       sellerId: req.user.id
     });
     const savedItem = await newItem.save();
@@ -53,6 +63,7 @@ exports.updateItem = async (req, res) => {
       return res.status(401).json({ message: "Not authorized" });
     }
 
+<<<<<<< HEAD
     const { title, description, price, category, images, condition, isDonation } = req.body;
     const updatedData = {};
     if (title !== undefined) updatedData.title = title;
@@ -64,6 +75,9 @@ exports.updateItem = async (req, res) => {
     if (isDonation !== undefined) updatedData.isDonation = isDonation;
 
     const updatedItem = await Item.findByIdAndUpdate(req.params.id, updatedData, { new: true });
+=======
+    const updatedItem = await Item.findByIdAndUpdate(req.params.id, req.body, { new: true });
+>>>>>>> 3bb46ca4d2d31115eb02cb98dad088dcab647242
     res.json(updatedItem);
   } catch (err) {
     res.status(500).json({ error: err.message });

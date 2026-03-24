@@ -4,10 +4,17 @@ import {
   HelpCircle, Menu, X, Home, Search, Info, ShoppingCart, ClipboardList,
   Package, Settings,
 } from 'lucide-react';
+<<<<<<< HEAD
 import { useTheme } from '../context/ThemeContext.js';
 import { useAuth } from '../context/AuthContext.js';
 import { useWishlist } from '../context/WishlistContext.js';
 import { useChat } from '../context/ChatContext.js';
+=======
+import { useTheme } from '../context/ThemeContext';
+import { useAuth } from '../context/AuthContext';
+import { useWishlist } from '../context/WishlistContext';
+import { useChat } from '../context/ChatContext';
+>>>>>>> 3bb46ca4d2d31115eb02cb98dad088dcab647242
 import { motion, AnimatePresence } from 'motion/react';
 import { useState, useEffect, useRef } from 'react';
 
