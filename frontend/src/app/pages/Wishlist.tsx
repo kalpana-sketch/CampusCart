@@ -1,8 +1,18 @@
 import { motion, AnimatePresence } from 'motion/react';
 import { Heart, ShoppingBag, Trash2, Loader2 } from 'lucide-react';
 import { Link } from 'react-router';
+<<<<<<< HEAD
 import { ItemCard } from '../components/ItemCard';
 import { useWishlist } from '../context/WishlistContext';
+=======
+<<<<<<< HEAD
+import { ItemCard } from '../components/ItemCard.js';
+import { useWishlist } from '../context/WishlistContext.js';
+=======
+import { ItemCard } from '../components/ItemCard';
+import { useWishlist } from '../context/WishlistContext';
+>>>>>>> 3bb46ca4d2d31115eb02cb98dad088dcab647242
+>>>>>>> 170944ca248775a90c71923f2fb9d532fa0bffbe
 
 export function Wishlist() {
   const { wishlist: wishlistItems, removeFromWishlist, loading } = useWishlist();

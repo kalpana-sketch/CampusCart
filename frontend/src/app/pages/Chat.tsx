@@ -2,8 +2,18 @@ import { useState, useRef, useEffect } from 'react';
 import { useSearchParams, useNavigate, useLocation } from 'react-router';
 import { motion, AnimatePresence } from 'motion/react';
 import { Send, ArrowLeft, MessageCircle, Search, ChevronLeft } from 'lucide-react';
+<<<<<<< HEAD
 import { useChat, type ChatThread } from '../context/ChatContext';
 import { useAuth } from '../context/AuthContext';
+=======
+<<<<<<< HEAD
+import { useChat, type ChatThread } from '../context/ChatContext.js';
+import { useAuth } from '../context/AuthContext.js';
+=======
+import { useChat, type ChatThread } from '../context/ChatContext';
+import { useAuth } from '../context/AuthContext';
+>>>>>>> 3bb46ca4d2d31115eb02cb98dad088dcab647242
+>>>>>>> 170944ca248775a90c71923f2fb9d532fa0bffbe
 
 export function Chat() {
   const { threads, activeThreadId, setActiveThreadId, sendMessage } = useChat();
