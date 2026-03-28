@@ -2,15 +2,7 @@ import { useState } from 'react';
 import { motion } from 'motion/react';
 import { ShoppingBag, Mail, Lock, ArrowRight, Sparkles, Eye, EyeOff } from 'lucide-react';
 import { Link, useNavigate } from 'react-router';
-<<<<<<< HEAD
-import { useAuth } from '../context/AuthContext';
-=======
-<<<<<<< HEAD
 import { useAuth } from '../context/AuthContext.js';
-=======
-import { useAuth } from '../context/AuthContext';
->>>>>>> 3bb46ca4d2d31115eb02cb98dad088dcab647242
->>>>>>> 170944ca248775a90c71923f2fb9d532fa0bffbe
 
 export function Login() {
   const navigate = useNavigate();

@@ -5,15 +5,7 @@ const jwt = require("jsonwebtoken");
 // SIGNUP
 exports.signup = async (req, res) => {
   try {
-<<<<<<< HEAD
-    const { name, email, password, profileImage } = req.body;
-=======
-<<<<<<< HEAD
     const { name, email, password, profileImage, year, major } = req.body;
-=======
-    const { name, email, password, profileImage } = req.body;
->>>>>>> 3bb46ca4d2d31115eb02cb98dad088dcab647242
->>>>>>> 170944ca248775a90c71923f2fb9d532fa0bffbe
 
     let user = await User.findOne({ email });
 
@@ -27,17 +19,9 @@ exports.signup = async (req, res) => {
       name,
       email,
       password: hashedPassword,
-<<<<<<< HEAD
-      profileImage: profileImage || ""
-=======
-<<<<<<< HEAD
       profileImage: profileImage || "",
       year: year || "",
       major: major || ""
-=======
-      profileImage: profileImage || ""
->>>>>>> 3bb46ca4d2d31115eb02cb98dad088dcab647242
->>>>>>> 170944ca248775a90c71923f2fb9d532fa0bffbe
     });
 
     await user.save();
@@ -114,4 +98,4 @@ exports.login = async (req, res) => {
   } catch (err) {
     res.status(500).json({ error: err.message });
   }
-};
+};

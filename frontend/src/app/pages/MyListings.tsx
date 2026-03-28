@@ -2,26 +2,12 @@ import { useState, useMemo, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { Link } from 'react-router';
 import {
-  Plus, Search, ShoppingBag, Eye, MessageCircle, Edit3, Trash2,
-  CheckCircle2, Clock, XCircle, ArrowUpDown, Filter, MoreVertical,
-  TrendingUp, DollarSign, Package, BarChart3, ChevronDown, Heart,
-  AlertTriangle, RefreshCw, ArrowRight, X, Loader2
+  Plus, Search, ShoppingBag, Eye, MessageCircle, CheckCircle2, Clock, 
+  TrendingUp, DollarSign, Package, Heart, ArrowRight, Loader2
 } from 'lucide-react';
-<<<<<<< HEAD
-import { useAuth } from '../context/AuthContext';
-import { useWishlist } from '../context/WishlistContext';
-import api from '../services/api';
-=======
-<<<<<<< HEAD
 import { useAuth } from '../context/AuthContext.js';
 import { useWishlist } from '../context/WishlistContext.js';
 import api from '../services/api.js';
-=======
-import { useAuth } from '../context/AuthContext';
-import { useWishlist } from '../context/WishlistContext';
-import api from '../services/api';
->>>>>>> 3bb46ca4d2d31115eb02cb98dad088dcab647242
->>>>>>> 170944ca248775a90c71923f2fb9d532fa0bffbe
 
 type ListingStatus = 'active' | 'sold' | 'expired';
 type FilterTab = 'all' | ListingStatus;
@@ -75,7 +61,6 @@ export function MyListings() {
   const [activeFilter, setActiveFilter] = useState<FilterTab>('all');
   const [searchQuery, setSearchQuery] = useState('');
   const [sortBy, setSortBy] = useState<SortOption>('newest');
-  const [showSortDropdown, setShowSortDropdown] = useState(false);
   const [deleteConfirm, setDeleteConfirm] = useState<string | null>(null);
 
   useEffect(() => {
@@ -265,7 +250,7 @@ export function MyListings() {
             { label: 'Items Sold', value: stats.sold, icon: CheckCircle2, gradient: 'from-blue-500 to-blue-600', iconBg: 'bg-blue-500/10' },
             { label: 'Total Views', value: stats.totalViews, icon: Eye, gradient: 'from-purple-500 to-purple-600', iconBg: 'bg-purple-500/10' },
             { label: 'Revenue Earned', value: `$${stats.totalRevenue}`, icon: TrendingUp, gradient: 'from-amber-500 to-orange-600', iconBg: 'bg-amber-500/10' },
-          ].map((stat, i) => (
+          ].map((stat) => (
             <div key={stat.label} className="bg-white/40 dark:bg-white/5 backdrop-blur-xl rounded-2xl border border-white/20 dark:border-white/10 p-5 shadow-lg">
               <div className={`w-10 h-10 rounded-xl ${stat.iconBg} flex items-center justify-center mb-3`}>
                 <stat.icon className="w-5 h-5 text-blue-500" />
@@ -307,12 +292,6 @@ export function MyListings() {
             <select
               value={sortBy}
               onChange={(e) => setSortBy(e.target.value as SortOption)}
-<<<<<<< HEAD
-              className="px-4 py-3 rounded-xl bg-white/50 dark:bg-white/5 border border-white/20 dark:border-white/10 text-neutral-700 dark:text-neutral-300"
-            >
-              {sortOptions.map(opt => <option key={opt.id} value={opt.id}>{opt.label}</option>)}
-=======
-<<<<<<< HEAD
               className="px-4 py-3 rounded-xl bg-white dark:bg-neutral-900 border border-white/20 dark:border-white/10 text-neutral-700 dark:text-neutral-300 shadow-sm cursor-pointer"
             >
               {sortOptions.map(opt => (
@@ -320,12 +299,6 @@ export function MyListings() {
                   {opt.label}
                 </option>
               ))}
-=======
-              className="px-4 py-3 rounded-xl bg-white/50 dark:bg-white/5 border border-white/20 dark:border-white/10 text-neutral-700 dark:text-neutral-300"
-            >
-              {sortOptions.map(opt => <option key={opt.id} value={opt.id}>{opt.label}</option>)}
->>>>>>> 3bb46ca4d2d31115eb02cb98dad088dcab647242
->>>>>>> 170944ca248775a90c71923f2fb9d532fa0bffbe
             </select>
           </div>
         </div>
@@ -334,7 +307,7 @@ export function MyListings() {
         <div className="space-y-4">
           <AnimatePresence mode="popLayout">
             {filteredListings.length > 0 ? (
-              filteredListings.map((listing, index) => {
+              filteredListings.map((listing) => {
                 const sc = statusConfig[listing.status] || statusConfig.active;
                 return (
                   <motion.div
