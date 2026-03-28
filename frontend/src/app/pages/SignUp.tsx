@@ -2,7 +2,15 @@ import { useState } from 'react';
 import { motion } from 'motion/react';
 import { ShoppingBag, Mail, Lock, User, GraduationCap, BookOpen, ArrowRight, LogIn, Eye, EyeOff } from 'lucide-react';
 import { Link, useNavigate } from 'react-router';
+<<<<<<< HEAD
 import { useAuth } from '../context/AuthContext';
+=======
+<<<<<<< HEAD
+import { useAuth } from '../context/AuthContext.js';
+=======
+import { useAuth } from '../context/AuthContext';
+>>>>>>> 3bb46ca4d2d31115eb02cb98dad088dcab647242
+>>>>>>> 170944ca248775a90c71923f2fb9d532fa0bffbe
 
 export function SignUp() {
   const navigate = useNavigate();
@@ -34,12 +42,34 @@ export function SignUp() {
       return;
     }
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+    if (!formData.email.endsWith('.edu')) {
+      setError('Please use a valid university email ending in .edu');
+      return;
+    }
+
+    setIsLoading(true);
+
+    try {
+      console.log('Attempting signup with:', { ...formData, password: '***' });
+      await signup(formData.name, formData.email, formData.password, formData.year, formData.major);
+      navigate('/');
+    } catch (err: any) {
+      console.error('Signup error:', err);
+=======
+>>>>>>> 170944ca248775a90c71923f2fb9d532fa0bffbe
     setIsLoading(true);
 
     try {
       await signup(formData.name, formData.email, formData.password);
       navigate('/');
     } catch (err: any) {
+<<<<<<< HEAD
+=======
+>>>>>>> 3bb46ca4d2d31115eb02cb98dad088dcab647242
+>>>>>>> 170944ca248775a90c71923f2fb9d532fa0bffbe
       setError(err.message || 'Something went wrong. Please try again.');
     } finally {
       setIsLoading(false);
@@ -138,6 +168,52 @@ export function SignUp() {
           </div>
 
           {/* Year & Major */}
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div>
+                <label className="block text-sm font-medium text-neutral-900 dark:text-white mb-2">
+                  Year
+                </label>
+                <div className="relative">
+                  <GraduationCap className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-neutral-400" />
+                  <select
+                    required
+                    value={formData.year}
+                    onChange={(e) => setFormData({ ...formData, year: e.target.value })}
+                    className="w-full pl-10 pr-3 py-3 bg-white/50 dark:bg-neutral-900 backdrop-blur-md border border-white/20 dark:border-white/10 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-neutral-900 dark:text-white shadow-sm transition-all text-sm cursor-pointer"
+                  >
+                    <option value="1st Year" className="bg-white dark:bg-neutral-900 text-neutral-900 dark:text-white">1st Year</option>
+                    <option value="2nd Year" className="bg-white dark:bg-neutral-900 text-neutral-900 dark:text-white">2nd Year</option>
+                    <option value="3rd Year" className="bg-white dark:bg-neutral-900 text-neutral-900 dark:text-white">3rd Year</option>
+                    <option value="4th Year" className="bg-white dark:bg-neutral-900 text-neutral-900 dark:text-white">4th Year</option>
+                    <option value="5th Year" className="bg-white dark:bg-neutral-900 text-neutral-900 dark:text-white">5th Year</option>
+                    <option value="Graduate" className="bg-white dark:bg-neutral-900 text-neutral-900 dark:text-white">Graduate</option>
+                  </select>
+                </div>
+              </div>
+
+              <div>
+                <label className="block text-sm font-medium text-neutral-900 dark:text-white mb-2">
+                  Major
+                </label>
+                <div className="relative">
+                  <BookOpen className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-neutral-400" />
+                  <input
+                    type="text"
+                    required
+                    value={formData.major}
+                    onChange={(e) => setFormData({ ...formData, major: e.target.value })}
+                    placeholder="CS"
+                    className="w-full pl-10 pr-3 py-3 bg-white/50 dark:bg-white/5 backdrop-blur-md border border-white/20 dark:border-white/10 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-neutral-900 dark:text-white placeholder-neutral-400 shadow-sm transition-all text-sm"
+                  />
+                </div>
+              </div>
+            </div>
+
+=======
+>>>>>>> 170944ca248775a90c71923f2fb9d532fa0bffbe
           <div className="grid grid-cols-2 gap-4">
             <div>
               <label className="block text-sm font-medium text-neutral-900 dark:text-white mb-2">
@@ -179,6 +255,10 @@ export function SignUp() {
             </div>
           </div>
 
+<<<<<<< HEAD
+=======
+>>>>>>> 3bb46ca4d2d31115eb02cb98dad088dcab647242
+>>>>>>> 170944ca248775a90c71923f2fb9d532fa0bffbe
           {/* Password */}
           <div>
             <label className="block text-sm font-medium text-neutral-900 dark:text-white mb-2">
@@ -291,7 +371,15 @@ export function SignUp() {
               className="w-full px-6 py-3 bg-white/50 dark:bg-white/5 backdrop-blur-md text-neutral-900 dark:text-white rounded-lg font-medium hover:bg-white/70 dark:hover:bg-white/10 transition-all border border-white/20 shadow-lg flex items-center justify-center gap-2"
             >
               <LogIn className="w-5 h-5 text-blue-600 dark:text-blue-500" />
+<<<<<<< HEAD
+              Sign In
+=======
+<<<<<<< HEAD
+              Sign In
+=======
               Sign In Instead
+>>>>>>> 3bb46ca4d2d31115eb02cb98dad088dcab647242
+>>>>>>> 170944ca248775a90c71923f2fb9d532fa0bffbe
             </motion.button>
           </Link>
         </motion.form>

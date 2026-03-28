@@ -1,9 +1,21 @@
 import { Link } from 'react-router';
 import { motion } from 'motion/react';
 import { Heart } from 'lucide-react';
+<<<<<<< HEAD
 import type { Item } from '../data/mockData';
 import { useWishlist } from '../context/WishlistContext';
 import { useAuth } from '../context/AuthContext';
+=======
+<<<<<<< HEAD
+import type { Item } from '../data/mockData.js';
+import { useWishlist } from '../context/WishlistContext.js';
+import { useAuth } from '../context/AuthContext.js';
+=======
+import type { Item } from '../data/mockData';
+import { useWishlist } from '../context/WishlistContext';
+import { useAuth } from '../context/AuthContext';
+>>>>>>> 3bb46ca4d2d31115eb02cb98dad088dcab647242
+>>>>>>> 170944ca248775a90c71923f2fb9d532fa0bffbe
 import { useNavigate } from 'react-router';
 
 interface ItemCardProps {

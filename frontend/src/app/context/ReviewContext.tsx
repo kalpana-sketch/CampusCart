@@ -1,3 +1,26 @@
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+import { createContext, useContext, useState, useCallback, ReactNode } from 'react';
+import api from '../services/api.js';
+
+export interface Review {
+  _id: string;
+  seller: string;
+  reviewer: {
+    _id: string;
+    name: string;
+  };
+  rating: number;
+  text: string;
+  createdAt: string;
+}
+
+interface ReviewContextType {
+  fetchReviews: (sellerId: string) => Promise<Review[]>;
+  addReview: (sellerId: string, rating: number, text: string) => Promise<void>;
+=======
+>>>>>>> 170944ca248775a90c71923f2fb9d532fa0bffbe
 import { createContext, useContext, useState, useEffect, ReactNode } from 'react';
 
 export interface Review {
@@ -14,10 +37,41 @@ interface ReviewContextType {
   getReviews: (itemId: string) => Review[];
   addReview: (itemId: string, rating: number, comment: string, author: string, avatar: string) => void;
   getAverageRating: (itemId: string) => number;
+<<<<<<< HEAD
+=======
+>>>>>>> 3bb46ca4d2d31115eb02cb98dad088dcab647242
+>>>>>>> 170944ca248775a90c71923f2fb9d532fa0bffbe
 }
 
 const ReviewContext = createContext<ReviewContextType | undefined>(undefined);
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+export function ReviewProvider({ children }: { children: ReactNode }) {
+  const fetchReviews = async (sellerId: string) => {
+    try {
+      const response = await api.get(`/reviews/${sellerId}`);
+      return response.data;
+    } catch (error) {
+      console.error('Error fetching reviews:', error);
+      return [];
+    }
+  };
+
+  const addReview = async (sellerId: string, rating: number, text: string) => {
+    try {
+      await api.post('/reviews', { sellerId, rating, text });
+    } catch (error: any) {
+      console.error('Error adding review:', error);
+      throw new Error(error.response?.data?.message || 'Failed to add review');
+    }
+  };
+
+  return (
+    <ReviewContext.Provider value={{ fetchReviews, addReview }}>
+=======
+>>>>>>> 170944ca248775a90c71923f2fb9d532fa0bffbe
 const initialReviews: Review[] = [
   { id: 'r1', itemId: '1', author: 'David Kim', avatar: 'DK', rating: 5, comment: 'Textbook was in perfect condition, exactly as described. Great price too!', date: '2026-02-28' },
   { id: 'r2', itemId: '1', author: 'Olivia Martinez', avatar: 'OM', rating: 4, comment: 'A little highlighting on a few pages but overall very clean. Good deal.', date: '2026-02-27' },
@@ -69,6 +123,10 @@ export function ReviewProvider({ children }: { children: ReactNode }) {
 
   return (
     <ReviewContext.Provider value={{ getReviews, addReview, getAverageRating }}>
+<<<<<<< HEAD
+=======
+>>>>>>> 3bb46ca4d2d31115eb02cb98dad088dcab647242
+>>>>>>> 170944ca248775a90c71923f2fb9d532fa0bffbe
       {children}
     </ReviewContext.Provider>
   );

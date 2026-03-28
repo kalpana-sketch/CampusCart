@@ -1,10 +1,23 @@
 import { useState, useEffect } from 'react';
 import { motion } from 'motion/react';
 import { Search, SlidersHorizontal, Loader2 } from 'lucide-react';
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+import { ItemCard } from '../components/ItemCard.js';
+import { CategoryFilter } from '../components/CategoryFilter.js';
+import { categories, type Item } from '../data/mockData.js';
+import api from '../services/api.js';
+=======
+>>>>>>> 170944ca248775a90c71923f2fb9d532fa0bffbe
 import { ItemCard } from '../components/ItemCard';
 import { CategoryFilter } from '../components/CategoryFilter';
 import { categories, type Item } from '../data/mockData';
 import api from '../services/api';
+<<<<<<< HEAD
+=======
+>>>>>>> 3bb46ca4d2d31115eb02cb98dad088dcab647242
+>>>>>>> 170944ca248775a90c71923f2fb9d532fa0bffbe
 
 export function Browse() {
   const [items, setItems] = useState<Item[]>([]);
@@ -78,13 +91,29 @@ export function Browse() {
               <select
                 value={selectedCategory}
                 onChange={(e) => setSelectedCategory(e.target.value)}
+<<<<<<< HEAD
                 className="w-full appearance-none bg-white/40 dark:bg-white/5 backdrop-blur-md border border-white/20 dark:border-white/10 rounded-xl px-4 py-2.5 text-sm font-medium focus:outline-none focus:ring-2 focus:ring-blue-500 text-neutral-700 dark:text-neutral-300 shadow-sm"
+=======
+<<<<<<< HEAD
+                className="w-full appearance-none bg-white dark:bg-neutral-900 border border-white/20 dark:border-white/10 rounded-xl px-4 py-2.5 text-sm font-medium focus:outline-none focus:ring-2 focus:ring-blue-500 text-neutral-700 dark:text-neutral-300 shadow-sm cursor-pointer"
+=======
+                className="w-full appearance-none bg-white/40 dark:bg-white/5 backdrop-blur-md border border-white/20 dark:border-white/10 rounded-xl px-4 py-2.5 text-sm font-medium focus:outline-none focus:ring-2 focus:ring-blue-500 text-neutral-700 dark:text-neutral-300 shadow-sm"
+>>>>>>> 3bb46ca4d2d31115eb02cb98dad088dcab647242
+>>>>>>> 170944ca248775a90c71923f2fb9d532fa0bffbe
               >
                 {categories.map((cat) => (
                   <option key={cat} value={cat} className="text-neutral-900 dark:text-white bg-white dark:bg-neutral-900">{cat}</option>
                 ))}
               </select>
+<<<<<<< HEAD
               <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-4 text-neutral-500">
+=======
+<<<<<<< HEAD
+              <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-4 text-neutral-400">
+=======
+              <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-4 text-neutral-500">
+>>>>>>> 3bb46ca4d2d31115eb02cb98dad088dcab647242
+>>>>>>> 170944ca248775a90c71923f2fb9d532fa0bffbe
                   <svg className="w-4 h-4 fill-current" viewBox="0 0 20 20"><path d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clipRule="evenodd" fillRule="evenodd"></path></svg>
               </div>
             </div>
@@ -93,12 +122,28 @@ export function Browse() {
               <select
                 value={showDonationsOnly ? 'free' : 'all'}
                 onChange={(e) => setShowDonationsOnly(e.target.value === 'free')}
+<<<<<<< HEAD
                 className="w-full appearance-none bg-white/40 dark:bg-white/5 backdrop-blur-md border border-white/20 dark:border-white/10 rounded-xl px-4 py-2.5 text-sm font-medium focus:outline-none focus:ring-2 focus:ring-blue-500 text-neutral-700 dark:text-neutral-300 shadow-sm"
+=======
+<<<<<<< HEAD
+                className="w-full appearance-none bg-white dark:bg-neutral-900 border border-white/20 dark:border-white/10 rounded-xl px-4 py-2.5 text-sm font-medium focus:outline-none focus:ring-2 focus:ring-blue-500 text-neutral-700 dark:text-neutral-300 shadow-sm cursor-pointer"
+=======
+                className="w-full appearance-none bg-white/40 dark:bg-white/5 backdrop-blur-md border border-white/20 dark:border-white/10 rounded-xl px-4 py-2.5 text-sm font-medium focus:outline-none focus:ring-2 focus:ring-blue-500 text-neutral-700 dark:text-neutral-300 shadow-sm"
+>>>>>>> 3bb46ca4d2d31115eb02cb98dad088dcab647242
+>>>>>>> 170944ca248775a90c71923f2fb9d532fa0bffbe
               >
                 <option value="all" className="text-neutral-900 dark:text-white bg-white dark:bg-neutral-900">All Items</option>
                 <option value="free" className="text-neutral-900 dark:text-white bg-white dark:bg-neutral-900">Free Items Only</option>
               </select>
+<<<<<<< HEAD
               <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-4 text-neutral-500">
+=======
+<<<<<<< HEAD
+              <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-4 text-neutral-400">
+=======
+              <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-4 text-neutral-500">
+>>>>>>> 3bb46ca4d2d31115eb02cb98dad088dcab647242
+>>>>>>> 170944ca248775a90c71923f2fb9d532fa0bffbe
                   <svg className="w-4 h-4 fill-current" viewBox="0 0 20 20"><path d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clipRule="evenodd" fillRule="evenodd"></path></svg>
               </div>
             </div>
