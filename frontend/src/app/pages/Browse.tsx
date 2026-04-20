@@ -2,7 +2,6 @@ import { useState, useEffect } from 'react';
 import { motion } from 'motion/react';
 import { Search, SlidersHorizontal, Loader2 } from 'lucide-react';
 import { ItemCard } from '../components/ItemCard.js';
-import { CategoryFilter } from '../components/CategoryFilter.js';
 import { categories, type Item } from '../data/mockData.js';
 import api from '../services/api.js';
 

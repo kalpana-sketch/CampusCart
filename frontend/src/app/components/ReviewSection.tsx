@@ -49,7 +49,9 @@ export function ReviewSection({ sellerId }: { sellerId: string }) {
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   useEffect(() => {
-    loadReviews();
+    if (sellerId) {
+      loadReviews();
+    }
   }, [sellerId]);
 
   const loadReviews = async () => {

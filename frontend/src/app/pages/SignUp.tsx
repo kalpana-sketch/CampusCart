@@ -57,7 +57,6 @@ export function SignUp() {
     } finally {
       setIsLoading(false);
     }
-
   };
 
   return (

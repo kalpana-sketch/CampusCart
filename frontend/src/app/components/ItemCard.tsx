@@ -137,4 +137,3 @@ export function ItemCard({ item, index }: ItemCardProps) {
     </motion.div>
   );
 }
-

@@ -43,7 +43,7 @@ export function ChatProvider({ children }: { children: React.ReactNode }) {
   const [threads, setThreads] = useState<ChatThread[]>([]);
   const [activeThreadId, setActiveThreadId] = useState<string | null>(null);
   const { user, isAuthenticated } = useAuth();
-  const pollingRef = useRef<NodeJS.Timeout | null>(null);
+  const pollingRef = useRef<ReturnType<typeof setInterval> | null>(null);
 
   const fetchConversations = useCallback(async () => {
     if (!isAuthenticated || !user) return;

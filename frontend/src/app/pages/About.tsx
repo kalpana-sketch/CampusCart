@@ -3,7 +3,7 @@ import { motion } from 'motion/react';
 import { useLocation } from 'react-router';
 import { BookOpen, Upload, MessageCircle, Leaf, Users, Briefcase, GraduationCap, ArrowRight } from 'lucide-react';
 import { Link } from 'react-router';
-import { ImageWithFallback } from '../components/figma/ImageWithFallback';
+import { ImageWithFallback } from '../components/figma/ImageWithFallback.js';
 
 const fadeUp = {
   initial: { opacity: 0, y: 30 },
