@@ -108,7 +108,7 @@ export function About() {
               <div className="absolute inset-0 bg-gradient-to-r from-blue-600/20 to-purple-600/20 rounded-2xl blur-2xl"></div>
               <div className="relative rounded-2xl overflow-hidden border border-white/20 dark:border-white/10 shadow-2xl">
                 <ImageWithFallback
-                  src="https://images.unsplash.com/photo-1625111380820-9a371d413cc4?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxzdHVkZW50cyUyMHN0dWR5aW5nJTIwdG9nZXRoZXJ8ZW58MXx8fHwxNzczMjk1MDMyfDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral"
+                  src="/1.png"
                   alt="Students studying together"
                   className="w-full h-80 lg:h-96 object-cover"
                 />
@@ -130,7 +130,7 @@ export function About() {
               <div className="absolute inset-0 bg-gradient-to-r from-purple-600/20 to-blue-600/20 rounded-2xl blur-2xl"></div>
               <div className="relative rounded-2xl overflow-hidden border border-white/20 dark:border-white/10 shadow-2xl">
                 <ImageWithFallback
-                  src="https://images.unsplash.com/photo-1631599143424-5bc234fbebf1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx1bml2ZXJzaXR5JTIwY2FtcHVzJTIwYnVpbGRpbmd8ZW58MXx8fHwxNzczMjUyOTA0fDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral"
+                  src="/our_story.png"
                   alt="University campus"
                   className="w-full h-80 lg:h-96 object-cover"
                 />
@@ -154,10 +154,6 @@ export function About() {
                   So we built a platform where verified college students can easily exchange books, electronics, furniture,
                   and everyday essentials right inside their own college. No strangers, no spam — just real students
                   helping each other save money and reduce waste.
-                </p>
-                <p>
-                  Since our founding, CampusCart has grown to serve thousands of students across multiple universities,
-                  facilitating tens of thousands of successful transactions and saving students an estimated $2 million collectively.
                 </p>
               </div>
             </motion.div>
@@ -212,43 +208,6 @@ export function About() {
         </div>
       </section>
 
-      {/* Campus Partners */}
-      <section id="partners" className="py-16 lg:py-24">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div {...fadeUp} className="text-center mb-16">
-            <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-purple-500/10 border border-purple-500/20 text-purple-600 dark:text-purple-400 text-sm font-medium mb-4">
-              <GraduationCap className="w-4 h-4" />
-              Campus Partners
-            </span>
-            <h2 className="text-3xl lg:text-4xl font-bold text-neutral-900 dark:text-white mb-4">
-              Trusted by Top Universities
-            </h2>
-            <p className="text-neutral-600 dark:text-neutral-400 max-w-2xl mx-auto">
-              CampusCart partners with leading universities to bring safe and verified student marketplaces to campuses nationwide.
-            </p>
-          </motion.div>
-
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-6">
-            {partners.map((partner, index) => (
-              <motion.div
-                key={partner.name}
-                initial={{ opacity: 0, scale: 0.9 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.4, delay: index * 0.08 }}
-                whileHover={{ scale: 1.05, y: -4 }}
-                className="bg-white/40 dark:bg-white/5 backdrop-blur-xl rounded-2xl border border-white/20 dark:border-white/10 p-6 flex flex-col items-center justify-center gap-3 shadow-lg hover:shadow-xl transition-all cursor-default"
-              >
-                <div className={`w-14 h-14 rounded-xl bg-gradient-to-br ${partner.color} flex items-center justify-center shadow-md`}>
-                  <span className="text-white font-bold text-xs">{partner.initials}</span>
-                </div>
-                <p className="text-xs font-medium text-neutral-700 dark:text-neutral-300 text-center">{partner.name}</p>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* Sustainability */}
       <section id="sustainability" className="py-16 lg:py-24 relative">
         <div className="absolute inset-0 bg-gradient-to-b from-green-50/30 to-blue-50/30 dark:from-green-950/10 dark:to-blue-950/10"></div>
@@ -267,31 +226,8 @@ export function About() {
               </h2>
               <div className="space-y-4 text-neutral-600 dark:text-neutral-400 mb-8">
                 <p>
-                  Every item sold on CampusCart is one less product that ends up in a landfill. By promoting the reuse of
-                  textbooks, electronics, furniture, and clothing, we help students reduce their carbon footprint while
-                  saving money.
+                  Sustainability is at the heart of CampusCart’s mission, encouraging students to make smarter, eco-friendly choices in their everyday lives. Every time you choose to buy a second-hand item, you actively contribute to reducing waste and minimizing the demand for new production. Manufacturing new products often consumes large amounts of natural resources, energy, and water, while also generating significant carbon emissions. By giving pre-owned items a second life—whether it’s textbooks, electronics, furniture, or clothing—you help extend their lifecycle and keep them out of landfills. This simple shift in buying behavior can collectively make a meaningful impact on the environment.
                 </p>
-                <p>
-                  Since launch, our community has prevented an estimated 15,000+ items from going to waste,
-                  saving over 50 tons of CO2 emissions. That's the equivalent of planting 2,500 trees.
-                </p>
-              </div>
-              <div className="grid grid-cols-3 gap-4">
-                {[
-                  { value: '15K+', label: 'Items Reused' },
-                  { value: '50 tons', label: 'CO2 Saved' },
-                  { value: '2,500', label: 'Trees Equivalent' },
-                ].map((stat) => (
-                  <div
-                    key={stat.label}
-                    className="bg-white/40 dark:bg-white/5 backdrop-blur-md rounded-xl border border-white/20 dark:border-white/10 p-4 text-center"
-                  >
-                    <p className="text-2xl font-bold bg-gradient-to-r from-green-500 to-emerald-600 bg-clip-text text-transparent">
-                      {stat.value}
-                    </p>
-                    <p className="text-xs text-neutral-500 dark:text-neutral-400 mt-1">{stat.label}</p>
-                  </div>
-                ))}
               </div>
             </motion.div>
             <motion.div
@@ -302,71 +238,13 @@ export function About() {
               <div className="absolute inset-0 bg-gradient-to-r from-green-600/20 to-emerald-600/20 rounded-2xl blur-2xl"></div>
               <div className="relative rounded-2xl overflow-hidden border border-white/20 dark:border-white/10 shadow-2xl">
                 <ImageWithFallback
-                  src="https://images.unsplash.com/photo-1743082063778-bb0c2b04d2eb?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxzdXN0YWluYWJsZSUyMHJlY3ljbGluZyUyMGdyZWVuJTIwZWFydGh8ZW58MXx8fHwxNzczMzI5NTgyfDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral"
+                  src="/sustainability.jpeg" 
+                  style={{ height: 'fit-content' }}
                   alt="Sustainability"
                   className="w-full h-80 lg:h-96 object-cover"
                 />
               </div>
             </motion.div>
-          </div>
-        </div>
-      </section>
-
-      {/* Careers */}
-      <section id="careers" className="py-16 lg:py-24">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="relative bg-white/40 dark:bg-white/5 backdrop-blur-xl rounded-2xl border border-white/20 dark:border-white/10 overflow-hidden shadow-2xl">
-            <div className="absolute top-0 right-0 w-80 h-80 bg-purple-500/10 rounded-full blur-3xl"></div>
-            <div className="absolute bottom-0 left-0 w-80 h-80 bg-blue-500/10 rounded-full blur-3xl"></div>
-            <div className="relative grid lg:grid-cols-2 gap-8 items-center p-8 lg:p-12">
-              <motion.div {...fadeUp}>
-                <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-600 dark:text-blue-400 text-sm font-medium mb-6">
-                  <Briefcase className="w-4 h-4" />
-                  Careers
-                </span>
-                <h2 className="text-3xl lg:text-4xl font-bold text-neutral-900 dark:text-white mb-4">
-                  Join Our Team
-                </h2>
-                <p className="text-neutral-600 dark:text-neutral-400 mb-6">
-                  We're always looking for passionate students and recent graduates who want to make a difference.
-                  Whether it's engineering, design, marketing, or community management — there's a place for you at CampusCart.
-                </p>
-                <div className="flex flex-wrap gap-3 mb-8">
-                  {['Engineering', 'Design', 'Marketing', 'Community', 'Operations'].map((role) => (
-                    <span
-                      key={role}
-                      className="px-3 py-1.5 rounded-lg bg-white/50 dark:bg-white/5 border border-white/20 dark:border-white/10 text-sm text-neutral-700 dark:text-neutral-300"
-                    >
-                      {role}
-                    </span>
-                  ))}
-                </div>
-                <motion.button
-                  whileHover={{ scale: 1.03 }}
-                  whileTap={{ scale: 0.97 }}
-                  className="relative px-8 py-3.5 rounded-xl font-semibold text-white shadow-lg overflow-hidden group"
-                >
-                  <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-purple-600"></div>
-                  <div className="absolute inset-0 bg-gradient-to-r from-blue-400/0 via-white/20 to-purple-400/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000"></div>
-                  <span className="relative z-10 flex items-center gap-2">
-                    View Open Positions <ArrowRight className="w-5 h-5" />
-                  </span>
-                </motion.button>
-              </motion.div>
-              <motion.div
-                {...fadeUp}
-                transition={{ duration: 0.6, delay: 0.2 }}
-                className="relative hidden lg:block"
-              >
-                <div className="rounded-2xl overflow-hidden border border-white/20 dark:border-white/10 shadow-xl">
-                  <ImageWithFallback
-                    src="https://images.unsplash.com/photo-1758873268663-5a362616b5a7?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxkaXZlcnNlJTIwdGVhbSUyMGNvbGxhYm9yYXRpb24lMjBzdGFydHVwfGVufDF8fHx8MTc3MzMyOTU4Mnww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral"
-                    alt="Team collaboration"
-                    className="w-full h-80 object-cover"
-                  />
-                </div>
-              </motion.div>
-            </div>
           </div>
         </div>
       </section>

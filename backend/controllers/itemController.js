@@ -24,9 +24,6 @@ exports.getItemById = async (req, res) => {
 // CREATE ITEM
 exports.createItem = async (req, res) => {
   try {
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
     const { title, description, price, category, images, condition, isDonation } = req.body;
     const newItem = new Item({
       title,
@@ -36,19 +33,6 @@ exports.createItem = async (req, res) => {
       images,
       condition,
       isDonation,
-=======
->>>>>>> 170944ca248775a90c71923f2fb9d532fa0bffbe
-    const { title, description, price, category, images } = req.body;
-    const newItem = new Item({
-      title,
-      description,
-      price,
-      category,
-      images,
-<<<<<<< HEAD
-=======
->>>>>>> 3bb46ca4d2d31115eb02cb98dad088dcab647242
->>>>>>> 170944ca248775a90c71923f2fb9d532fa0bffbe
       sellerId: req.user.id
     });
     const savedItem = await newItem.save();
@@ -69,10 +53,6 @@ exports.updateItem = async (req, res) => {
       return res.status(401).json({ message: "Not authorized" });
     }
 
-<<<<<<< HEAD
-    const updatedItem = await Item.findByIdAndUpdate(req.params.id, req.body, { new: true });
-=======
-<<<<<<< HEAD
     const { title, description, price, category, images, condition, isDonation } = req.body;
     const updatedData = {};
     if (title !== undefined) updatedData.title = title;
@@ -84,10 +64,6 @@ exports.updateItem = async (req, res) => {
     if (isDonation !== undefined) updatedData.isDonation = isDonation;
 
     const updatedItem = await Item.findByIdAndUpdate(req.params.id, updatedData, { new: true });
-=======
-    const updatedItem = await Item.findByIdAndUpdate(req.params.id, req.body, { new: true });
->>>>>>> 3bb46ca4d2d31115eb02cb98dad088dcab647242
->>>>>>> 170944ca248775a90c71923f2fb9d532fa0bffbe
     res.json(updatedItem);
   } catch (err) {
     res.status(500).json({ error: err.message });

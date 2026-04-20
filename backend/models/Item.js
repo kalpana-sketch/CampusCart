@@ -6,18 +6,12 @@ const itemSchema = new mongoose.Schema(
     description: { type: String, required: true },
     price: { type: Number, default: 0 },
     category: { type: String, required: true },
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
     condition: { type: String, default: "Good" },
     isDonation: { type: Boolean, default: false },
-=======
->>>>>>> 3bb46ca4d2d31115eb02cb98dad088dcab647242
->>>>>>> 170944ca248775a90c71923f2fb9d532fa0bffbe
     images: [{ type: String }], // Array of Base64 or URLs
     sellerId: { type: mongoose.Schema.Types.ObjectId, ref: "User", required: true },
   },
   { timestamps: true }
 );
 
-module.exports = mongoose.model("Item", itemSchema);
+module.exports = mongoose.model("Item", itemSchema);

@@ -7,21 +7,9 @@ import {
   TrendingUp, DollarSign, Package, BarChart3, ChevronDown, Heart,
   AlertTriangle, RefreshCw, ArrowRight, X, Loader2
 } from 'lucide-react';
-<<<<<<< HEAD
-import { useAuth } from '../context/AuthContext';
-import { useWishlist } from '../context/WishlistContext';
-import api from '../services/api';
-=======
-<<<<<<< HEAD
 import { useAuth } from '../context/AuthContext.js';
 import { useWishlist } from '../context/WishlistContext.js';
 import api from '../services/api.js';
-=======
-import { useAuth } from '../context/AuthContext';
-import { useWishlist } from '../context/WishlistContext';
-import api from '../services/api';
->>>>>>> 3bb46ca4d2d31115eb02cb98dad088dcab647242
->>>>>>> 170944ca248775a90c71923f2fb9d532fa0bffbe
 
 type ListingStatus = 'active' | 'sold' | 'expired';
 type FilterTab = 'all' | ListingStatus;
@@ -307,25 +295,11 @@ export function MyListings() {
             <select
               value={sortBy}
               onChange={(e) => setSortBy(e.target.value as SortOption)}
-<<<<<<< HEAD
-              className="px-4 py-3 rounded-xl bg-white/50 dark:bg-white/5 border border-white/20 dark:border-white/10 text-neutral-700 dark:text-neutral-300"
-            >
-              {sortOptions.map(opt => <option key={opt.id} value={opt.id}>{opt.label}</option>)}
-=======
-<<<<<<< HEAD
+
               className="px-4 py-3 rounded-xl bg-white dark:bg-neutral-900 border border-white/20 dark:border-white/10 text-neutral-700 dark:text-neutral-300 shadow-sm cursor-pointer"
             >
-              {sortOptions.map(opt => (
-                <option key={opt.id} value={opt.id} className="text-neutral-900 dark:text-white bg-white dark:bg-neutral-900">
-                  {opt.label}
-                </option>
-              ))}
-=======
-              className="px-4 py-3 rounded-xl bg-white/50 dark:bg-white/5 border border-white/20 dark:border-white/10 text-neutral-700 dark:text-neutral-300"
-            >
               {sortOptions.map(opt => <option key={opt.id} value={opt.id}>{opt.label}</option>)}
->>>>>>> 3bb46ca4d2d31115eb02cb98dad088dcab647242
->>>>>>> 170944ca248775a90c71923f2fb9d532fa0bffbe
+
             </select>
           </div>
         </div>
