@@ -26,22 +26,6 @@ export function Footer() {
               <p className="text-sm text-neutral-600 dark:text-neutral-400 mb-4 max-w-xs">
                 The trusted student-only marketplace for buying and selling second-hand items on campus. Safe, simple, and sustainable.
               </p>
-              <div className="flex items-center gap-3">
-                {[
-                  { icon: Facebook, label: 'Facebook' },
-                  { icon: Twitter, label: 'Twitter' },
-                  { icon: Instagram, label: 'Instagram' },
-                  { icon: Youtube, label: 'YouTube' },
-                ].map(({ icon: Icon, label }) => (
-                  <button
-                    key={label}
-                    aria-label={label}
-                    className="w-9 h-9 flex items-center justify-center rounded-lg bg-white/40 dark:bg-white/5 backdrop-blur-md border border-white/20 dark:border-white/10 text-neutral-500 dark:text-neutral-400 hover:text-blue-600 dark:hover:text-blue-400 hover:border-blue-500/30 transition-all"
-                  >
-                    <Icon className="w-4 h-4" />
-                  </button>
-                ))}
-              </div>
             </div>
 
             {/* About Us */}
@@ -53,9 +37,7 @@ export function Footer() {
                 {[
                   { label: 'Our Story', href: '/about#story' },
                   { label: 'How It Works', href: '/about#how-it-works' },
-                  { label: 'Campus Partners', href: '/about#partners' },
                   { label: 'Sustainability', href: '/about#sustainability' },
-                  { label: 'Careers', href: '/about#careers' },
                 ].map((item) => (
                   <li key={item.label}>
                     <Link
@@ -102,20 +84,20 @@ export function Footer() {
               <ul className="space-y-3">
                 <li className="flex items-start gap-3">
                   <Mail className="w-4 h-4 text-neutral-400 mt-0.5 shrink-0" />
-                  <a href="mailto:support@campuscart.edu" className="text-sm text-neutral-600 dark:text-neutral-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
-                    support@campuscart.edu
+                  <a href="mailto:khushisc.12@gmail.com" className="text-sm text-neutral-600 dark:text-neutral-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+                    khushisc.12@gmail.com
                   </a>
                 </li>
                 <li className="flex items-start gap-3">
                   <Phone className="w-4 h-4 text-neutral-400 mt-0.5 shrink-0" />
-                  <a href="tel:+18005551234" className="text-sm text-neutral-600 dark:text-neutral-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
-                    +1 (800) 555-1234
+                  <a href="tel:+918653374769" className="text-sm text-neutral-600 dark:text-neutral-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+                    +91 86533 74769
                   </a>
                 </li>
                 <li className="flex items-start gap-3">
                   <MapPin className="w-4 h-4 text-neutral-400 mt-0.5 shrink-0" />
                   <span className="text-sm text-neutral-600 dark:text-neutral-400">
-                    123 University Ave, Campus Hub, CA 90210
+                    KIIT University, Bhubaneswar, Odisha, India
                   </span>
                 </li>
               </ul>
@@ -128,16 +110,6 @@ export function Footer() {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-5 flex flex-col sm:flex-row items-center justify-between gap-3">
             <p className="text-xs text-neutral-500 dark:text-neutral-500">
               &copy; 2026 CampusCart. All rights reserved.
-            </p>
-            <div className="flex items-center gap-4 text-xs text-neutral-500 dark:text-neutral-500">
-              <a href="#" className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Privacy Policy</a>
-              <span>&middot;</span>
-              <a href="#" className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Terms of Service</a>
-              <span>&middot;</span>
-              <a href="#" className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Cookie Policy</a>
-            </div>
-            <p className="text-xs text-neutral-500 dark:text-neutral-500 flex items-center gap-1">
-              Made with <Heart className="w-3 h-3 text-red-500 fill-red-500" /> for students
             </p>
           </div>
         </div>
