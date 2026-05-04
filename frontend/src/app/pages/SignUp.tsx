@@ -34,29 +34,43 @@ export function SignUp() {
       return;
     }
 
-    if (!formData.email.endsWith('.edu')) {
-      setError('Please use a valid university email ending in .edu');
+    if (!formData.email.endsWith('.edu') && !formData.email.includes('.ac.in')) {
+      setError('Please use a valid university email ending in .edu or .ac.in');
       return;
     }
 
     setIsLoading(true);
 
-    try {
-      console.log('Attempting signup with:', { ...formData, password: '***' });
-      await signup(formData.name, formData.email, formData.password, formData.year);
-      navigate('/');
-    } catch (err: any) {
-      console.error('Signup error:', err);
-    setIsLoading(true);
+    // try {
+    //   console.log('Attempting signup with:', { ...formData, password: '***' });
+    //   await signup(formData.name, formData.email, formData.password, formData.year);
+    //   navigate('/');
+    // } catch (err: any) {
+    //   console.error('Signup error:', err);
+    // setIsLoading(true);
 
+    // try {
+    //   await signup(formData.name, formData.email, formData.password);
+    //   navigate('/');
+    // } catch (err: any) {
+    //   setError(err.message || 'Something went wrong. Please try again.');
+    // } finally {
+    //   setIsLoading(false);
+    // }
     try {
-      await signup(formData.name, formData.email, formData.password);
-      navigate('/');
-    } catch (err: any) {
-      setError(err.message || 'Something went wrong. Please try again.');
-    } finally {
-      setIsLoading(false);
-    }
+    await signup(
+      formData.name,
+      formData.email,
+      formData.password,
+      formData.year
+    );
+    navigate('/');
+  } catch (err: any) {
+    console.error('Signup error:', err);
+    setError(err.message || 'Something went wrong. Please try again.');
+  } finally {
+    setIsLoading(false);
+  }
   };
 
   return (
