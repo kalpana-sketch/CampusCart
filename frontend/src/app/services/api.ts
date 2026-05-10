@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const api = axios.create({
-  baseURL: import.meta.env.VITE_API_URL,
+  baseURL: 'https://campuscart-1-9djo.onrender.com/api',
 });
 
 // Add a request interceptor to add the JWT token to headers
